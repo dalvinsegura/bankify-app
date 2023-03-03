@@ -14,11 +14,20 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#131F3D",
+          backgroundColor: "#181f3d",
           borderTopEndRadius: 45,
           borderTopStartRadius: 45,
           height: 65,
           paddingBottom: 5,
+          position: "absolute",
+          bottom: 0,
+          borderTopWidth: 0,
+
+          shadowColor: "#80d3ff",
+          shadowOpacity: 1,
+          shadowRadius: 10,
+          shadowOffset: { width: 0, height: 0 },
+          elevation: 20,
         },
       }}
     >
@@ -26,11 +35,13 @@ export default function TabNavigator() {
         name="Overview"
         component={OverviewScreen}
         options={{
+          headerShown: false,
+          headerTitle: "",
           tabBarIcon: ({ color, size, focused }) => (
             <Icons
               name="home"
               color="#c3deed"
-              size={size}
+              size={23}
               style={
                 focused
                   ? {
@@ -49,21 +60,24 @@ export default function TabNavigator() {
 
           tabBarLabelStyle: {
             position: "absolute",
-            bottom: 3,
+            bottom: 6,
             fontSize: 12,
             color: "#c3deed",
           },
         }}
       />
+
       <Tab.Screen
         name="Products"
         component={ProductsScreen}
         options={{
+          headerShown: false,
+          headerTitle: "",
           tabBarIcon: ({ color, size, focused }) => (
             <Icons
               name="shopping-bag"
               color="#c3deed"
-              size={size}
+              size={23}
               style={
                 focused
                   ? {
@@ -81,7 +95,7 @@ export default function TabNavigator() {
           ),
           tabBarLabelStyle: {
             position: "absolute",
-            bottom: 3,
+            bottom: 6,
             fontSize: 12,
             color: "#c3deed",
           },
@@ -91,11 +105,13 @@ export default function TabNavigator() {
         name="Profile"
         component={ProfileScreen}
         options={{
+          headerShown: false,
+          headerTitle: "",
           tabBarIcon: ({ color, size, focused }) => (
             <Icons
               name="user"
               color="#c3deed"
-              size={size}
+              size={23}
               style={
                 focused
                   ? {
@@ -113,7 +129,7 @@ export default function TabNavigator() {
           ),
           tabBarLabelStyle: {
             position: "absolute",
-            bottom: 3,
+            bottom: 6,
             fontSize: 12,
             color: "#c3deed",
           },
