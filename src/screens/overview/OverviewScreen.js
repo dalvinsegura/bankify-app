@@ -14,7 +14,7 @@ const OverviewScreen = () => {
       <SafeAreaView style={styles.container}>
         <Header />
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-          <View style={{ flex: 1, alignItems: "center", marginBottom: 170 }}>
+          <View style={{ flex: 1, alignItems: "center", marginBottom: 210 }}>
             <AccountBankBox />
             <DebitCardPreview />
             <DebitCardPreview />

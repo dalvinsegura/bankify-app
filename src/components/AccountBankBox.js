@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     width: "90%",
     paddingTop: 30,
-    marginTop: 70,
+    marginTop: 15,
     borderRadius: 15,
 
     backgroundColor: colorsPalette.lightBlue,
