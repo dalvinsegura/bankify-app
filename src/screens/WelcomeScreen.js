@@ -19,7 +19,8 @@ const WelcomeScreen = () => {
   useEffect(() => {
     const checkIsFirstTimeOnApp = async () => {
       const isFirstTimeOnApp = await getIsFirstTimeOnApp();
-      if (isFirstTimeOnApp === false) {
+      if (isFirstTimeOnApp == false) {
+        console.log(typeof isFirstTimeOnApp);
         navigation.replace("SignInScreen");
       }
     };
