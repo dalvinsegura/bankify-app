@@ -8,3 +8,8 @@ export const colorsPalette = {
   extraLightBlue: "#C3DEED",
   seaGreen: "#6fbb94",
 };
+
+export const asyncStorageItems = {
+  isFirstTimeOnApp: "isFirstTimeOnApp",
+  isLoggedIn: "isLoggedIn",
+};

@@ -11,6 +11,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import useAuth from "../hooks/useAuth";
+import { asyncStorageItems } from "../utils/enums";
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
@@ -29,7 +30,10 @@ const WelcomeScreen = () => {
 
   const onPressGetStarter = async () => {
     navigation.replace("SignUpScreen");
-    await AsyncStorage.setItem("isFirstTimeOnApp", JSON.stringify(false));
+    await AsyncStorage.setItem(
+      asyncStorageItems.isFirstTimeOnApp,
+      JSON.stringify(false)
+    );
   };
 
   return (

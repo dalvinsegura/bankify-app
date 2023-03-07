@@ -6,6 +6,7 @@ import AuthNavigator from "./AuthNavigator";
 import TabNavigator from "./TabNavigator";
 import LoadingScreen from "../screens/LoadingScreen";
 import useAuth from "../hooks/useAuth";
+import { asyncStorageItems } from "../utils/enums";
 
 export default function Navigation() {
   const Stack = createNativeStackNavigator();
@@ -14,7 +15,9 @@ export default function Navigation() {
 
   useEffect(() => {
     (async () => {
-      const response = JSON.parse(await AsyncStorage.getItem("isLoggedIn"));
+      const response = JSON.parse(
+        await AsyncStorage.getItem(asyncStorageItems.isLoggedIn)
+      );
       setIsLoggedIn(response);
 
       if (response !== undefined) {

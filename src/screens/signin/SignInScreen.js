@@ -15,6 +15,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import useAuth from "../../hooks/useAuth";
 import { async } from "@firebase/util";
+import { asyncStorageItems } from "../../utils/enums";
 
 const SignInScreen = () => {
   const navigation = useNavigation();
@@ -38,9 +39,9 @@ const SignInScreen = () => {
         console.log(user.email);
         (async () => {
           const isLoggedIn = JSON.parse(
-            await AsyncStorage.getItem("isLoggedIn")
+            await AsyncStorage.getItem(asyncStorageItems.isLoggedIn)
           );
-          await AsyncStorage.setItem("isLoggedIn", "true");
+          await AsyncStorage.setItem(asyncStorageItems.isLoggedIn, "true");
 
           console.log(isLoggedIn);
         })();
