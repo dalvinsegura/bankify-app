@@ -21,7 +21,7 @@ const WelcomeScreen = () => {
     const checkIsFirstTimeOnApp = async () => {
       const isFirstTimeOnApp = await getIsFirstTimeOnApp();
       if (isFirstTimeOnApp == false) {
-        console.log(typeof isFirstTimeOnApp);
+        console.log(isFirstTimeOnApp);
         navigation.replace("SignInScreen");
       }
     };

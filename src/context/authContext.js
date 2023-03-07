@@ -10,7 +10,7 @@ export function AuthProvider(props) {
   const { children } = props;
   const [dataAuth, setDataAuth] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const [isFirstTimeOnApp, setIsFirstTimeOnApp] = useState(false);
+  const [isFirstTimeOnApp, setIsFirstTimeOnApp] = useState(undefined);
 
   const login = (userData) => {
     setDataAuth(userData);
