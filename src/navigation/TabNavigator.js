@@ -1,7 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icons from "react-native-vector-icons/Feather";
-import * as native from "@react-navigation/native";
 
 import OverviewScreen from "../screens/overview/OverviewScreen";
 import ProductsScreen from "../screens/products/ProductsScreen";

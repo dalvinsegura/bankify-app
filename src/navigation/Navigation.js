@@ -5,6 +5,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthNavigator from "./AuthNavigator";
 import TabNavigator from "./TabNavigator";
 import LoadingScreen from "../screens/LoadingScreen";
+import AccountInfoScreen from "../screens/overview/AccountInfoScreen";
+
 import useAuth from "../hooks/useAuth";
 import { asyncStorageItems } from "../utils/enums";
 
@@ -46,6 +48,17 @@ export default function Navigation() {
           component={TabNavigator}
           options={{ headerShown: false }}
         />
+
+        <Stack.Group>
+          <Stack.Screen
+            name="AccountInfoScreen"
+            component={AccountInfoScreen}
+            options={{
+              headerShown: false,
+              headerLargeTitle: "",
+            }}
+          />
+        </Stack.Group>
       </Stack.Navigator>
     );
   } else {
