@@ -1,56 +1,68 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome5";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
 import { colorsPalette } from "../utils/enums";
 
 const AccountBankBox = () => {
+  const navigation = useNavigation();
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.borderPurpleLeft} />
-      <View style={styles.firstSection}>
-        <Ionicons
-          style={[styles.secondaryIcon, styles.treeDotsIcon]}
-          name="ellipsis-vertical"
-          size={20}
-        />
-        <View style={styles.walletIconCircle}>
+    <TouchableHighlight
+      onPress={() => navigation.navigate("AccountInfoScreen")}
+      underlayColor={"rgba(255, 255, 255, 0.02)"}
+      style={styles.container}
+    >
+      <View>
+        <View style={styles.borderPurpleLeft} />
+        <View style={styles.firstSection}>
           <Ionicons
-            style={[styles.secondaryIcon, styles.walletIcon]}
-            name="wallet"
+            style={[styles.secondaryIcon, styles.treeDotsIcon]}
+            name="ellipsis-vertical"
+            size={20}
+          />
+          <View style={styles.walletIconCircle}>
+            <Ionicons
+              style={[styles.secondaryIcon, styles.walletIcon]}
+              name="wallet"
+              size={30}
+            />
+          </View>
+
+          <View style={{ flex: 1, flexDirection: "column" }}>
+            <View style={styles.accountNumberContainer}>
+              <Text style={styles.title}>Account Number</Text>
+              <Text style={styles.dataText}>123123123131</Text>
+            </View>
+
+            <View style={styles.availableBalanceContainer}>
+              <Text style={styles.title}>Available Balanace</Text>
+              <Text style={styles.dataTextBalance}>$5,563.23</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.secondSection}>
+          <View style={styles.newPaymentContainer}>
+            <FeatherIcon
+              style={[styles.secondaryIcon, styles.newPaymentIcon]}
+              name="plus-circle"
+              size={30}
+              solid
+            />
+            <Text style={styles.newPaymentText}>New Payment</Text>
+          </View>
+
+          <Ionicons
+            style={styles.secondaryIcon}
+            name="share-social"
             size={30}
           />
         </View>
-
-        <View style={{ flex: 1, flexDirection: "column" }}>
-          <View style={styles.accountNumberContainer}>
-            <Text style={styles.title}>Account Number</Text>
-            <Text style={styles.dataText}>123123123131</Text>
-          </View>
-
-          <View style={styles.availableBalanceContainer}>
-            <Text style={styles.title}>Available Balanace</Text>
-            <Text style={styles.dataTextBalance}>$5,563.23</Text>
-          </View>
-        </View>
       </View>
-
-      <View style={styles.secondSection}>
-        <View style={styles.newPaymentContainer}>
-          <FeatherIcon
-            style={[styles.secondaryIcon, styles.newPaymentIcon]}
-            name="plus-circle"
-            size={30}
-            solid
-          />
-          <Text style={styles.newPaymentText}>New Payment</Text>
-        </View>
-
-        <Ionicons style={styles.secondaryIcon} name="share-social" size={30} />
-      </View>
-    </SafeAreaView>
+    </TouchableHighlight>
   );
 };
 
@@ -100,7 +112,7 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 10,
     borderBottomEndRadius: 10,
 
-    top: 15,
+    top: -15,
     left: 0,
     backgroundColor: colorsPalette.electricPurple,
   },
