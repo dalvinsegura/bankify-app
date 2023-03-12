@@ -69,6 +69,7 @@ export default function Navigation() {
               headerRight: () => (
                 <FeatherIcon name="settings" size={25} color="#fff" />
               ),
+              headerShadowVisible: false,
               headerTitleAlign: "center",
               headerTitleStyle: {
                 color: "#fff",
