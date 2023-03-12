@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
 import AuthNavigator from "./AuthNavigator";
 import TabNavigator from "./TabNavigator";
@@ -8,10 +10,11 @@ import LoadingScreen from "../screens/LoadingScreen";
 import AccountInfoScreen from "../screens/overview/AccountInfoScreen";
 
 import useAuth from "../hooks/useAuth";
-import { asyncStorageItems } from "../utils/enums";
+import { asyncStorageItems, colorsPalette } from "../utils/enums";
 
 export default function Navigation() {
   const Stack = createNativeStackNavigator();
+  const navigation = useNavigation();
   const { getIsLoading, updateIsLoading, dataAuth } = useAuth();
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
 
@@ -54,8 +57,28 @@ export default function Navigation() {
             name="AccountInfoScreen"
             component={AccountInfoScreen}
             options={{
-              headerShown: false,
-              headerLargeTitle: "",
+              headerTitle: "Account Info",
+              headerLeft: () => (
+                <FeatherIcon
+                  name="chevron-left"
+                  size={25}
+                  color="#fff"
+                  onPress={() => navigation.goBack()}
+                />
+              ),
+              headerRight: () => (
+                <FeatherIcon name="settings" size={25} color="#fff" />
+              ),
+              headerTitleAlign: "center",
+              headerTitleStyle: {
+                color: "#fff",
+                fontSize: 19,
+                fontWeight: "600",
+              },
+              headerStyle: {
+                backgroundColor: colorsPalette.darkBlue,
+                color: "#fff",
+              },
             }}
           />
         </Stack.Group>
