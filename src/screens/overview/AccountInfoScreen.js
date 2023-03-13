@@ -4,6 +4,7 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { colorsPalette } from "../../utils/enums";
+import DebitCard from "../../components/DebitCard";
 
 const AccountInfoScreen = () => {
   return (
@@ -55,6 +56,8 @@ const AccountInfoScreen = () => {
           />
         </View>
       </View>
+
+      <DebitCard />
     </View>
   );
 };
