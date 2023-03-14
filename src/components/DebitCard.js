@@ -10,14 +10,13 @@ const DebitCard = () => {
     <View
       style={{
         width: "100%",
-        height: "25%",
         marginTop: 40,
       }}
     >
       <Image
         resizeMethod="auto"
         source={imageSource}
-        resizeMode="contain"
+        resizeMode="cover"
         style={styles.image}
       />
       <View style={styles.container}>
