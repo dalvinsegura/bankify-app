@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { colorsPalette } from "../../utils/enums";
 import DebitCard from "../../components/DebitCard";
+import HistoryAccount from "../../components/HistoryAccount";
 
 const AccountInfoScreen = () => {
   return (
@@ -58,6 +60,8 @@ const AccountInfoScreen = () => {
       </View>
 
       <DebitCard />
+
+      <HistoryAccount />
     </View>
   );
 };
