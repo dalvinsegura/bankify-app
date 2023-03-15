@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions, Text, ScrollView } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -7,9 +7,10 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-
+import FeatherIcon from "react-native-vector-icons/Feather";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { colorsPalette } from "../utils/enums";
+import TransationHistory from "./TransationHistory";
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -58,11 +59,30 @@ const HistoryAccount = () => {
   });
 
   return (
-    <GestureDetector gesture={gesture}>
-      <Animated.View style={[styles.container, rBottomSheetStyle]}>
-        <View style={styles.line} />
-      </Animated.View>
-    </GestureDetector>
+    <Animated.View style={[styles.container, rBottomSheetStyle]}>
+      <GestureDetector gesture={gesture}>
+        <Animated.View>
+          <View style={styles.line} />
+
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <Text style={styles.titleText}>History</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.filterByText}>Spendings</Text>
+              <FeatherIcon
+                name="chevron-down"
+                size={23}
+                color="rgba(255, 255, 255, 0.6)"
+              />
+            </View>
+          </View>
+        </Animated.View>
+      </GestureDetector>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <TransationHistory />
+      </ScrollView>
+    </Animated.View>
   );
 };
 
@@ -76,6 +96,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: SCREEN_HEIGHT,
     borderRadius: 25,
+    paddingHorizontal: 25,
+    paddingBottom: SCREEN_HEIGHT * 0.08,
   },
   line: {
     width: 50,
@@ -86,14 +108,14 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   titleText: {
-    fontSize: 14,
-    lineHeight: 24,
+    fontSize: 20,
     fontWeight: "bold",
+    color: "rgba(255, 255, 255, 0.6)",
   },
-  box: {
-    height: 150,
-    width: 150,
-    backgroundColor: "blue",
-    borderRadius: 5,
+  filterByText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "rgba(255, 255, 255, 0.6)",
+    marginRight: 8,
   },
 });
